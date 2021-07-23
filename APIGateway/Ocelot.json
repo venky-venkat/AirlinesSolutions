@@ -1,0 +1,161 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 63201
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/login",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Airlines/ListAllAirlines",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/ListAllAirlines",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Airlines/GetAirline/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/getairline/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "downstreampathtemplate": "/api/Airlines",
+      "downstreamscheme": "http",
+      "downstreamhostandports": [
+        {
+          "host": "localhost",
+          "port": 62253
+        }
+      ],
+      "key": "accountmanagementkey",
+      "upstreampathtemplate": "/airline/operations",
+      "upstreamhttpmethod": [ "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Airlines/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/airline/delete/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    },
+    {
+      "downstreampathtemplate": "/api/flight/listallflights",
+      "downstreamscheme": "http",
+      "downstreamhostandports": [
+        {
+          "host": "localhost",
+          "port": 62253
+        }
+      ],
+      "key": "accountmanagementkey",
+      "upstreampathtemplate": "/listallflights",
+      "upstreamhttpmethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/GetFlight/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/getflight/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/SearchFlights/{from}/{to}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/searchflights/{from}/{to}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/flight/operations",
+      "UpstreamHttpMethod": [ "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/CancelFlight/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/cancelflight/{id}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Flight/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/flight/delete/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Booking",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62270
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/booking/operations",
+      "UpstreamHttpMethod": [ "POST", "PUT" ]
+    }
+  ]
+}
