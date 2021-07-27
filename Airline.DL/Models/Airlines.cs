@@ -11,5 +11,6 @@ namespace Airline.DL.Models
         public string Logopath { get; set; }
         public string Contactnumber { get; set; }
         public string Contactaddress { get; set; }
+        public string status { get; set; }
     }
 }

@@ -66,6 +66,19 @@
       "UpstreamHttpMethod": [ "DELETE" ]
     },
     {
+      "DownstreamPathTemplate": "/api/Airlines/Blockairlines/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/blockairline/{id}",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
       "downstreampathtemplate": "/api/flight/listallflights",
       "downstreamscheme": "http",
       "downstreamhostandports": [
@@ -104,6 +117,20 @@
       "UpstreamPathTemplate": "/searchflights/{from}/{to}",
       "UpstreamHttpMethod": [ "GET" ]
     },
+    {
+      "DownstreamPathTemplate": "/api/Flight/SearchFlights/{from}/{to}/{ondate}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/searchflightsbydate/{from}/{to}/{ondate}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
     {
       "DownstreamPathTemplate": "/api/Flight",
       "DownstreamScheme": "http",
@@ -156,6 +183,63 @@
       "Key": "accountmanagementKey",
       "UpstreamPathTemplate": "/booking/operations",
       "UpstreamHttpMethod": [ "POST", "PUT" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Booking/GetBookingByUser/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62270
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/Bookinghistory/{username}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Booking/GetBookingByPNR/{PNR}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62270
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/pnrstatus/{PNR}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Booking/GetBookingByID/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62270
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/getbookingbyid/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Booking/CancelbookingbyBookingID/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62270
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/cancelbooking/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ]
     }
+
   ]
 }

@@ -10,6 +10,7 @@ namespace Booking.DL.IRepository
     {
         public List<Bookings> GetallBookings();
         public Bookings GetBookingByPNR(string PNR);
+        public Bookings GetBookingById(int id);
         public List<Bookings> GetBookingsByUser(string Username);
         public Bookings AddBooking(Bookings booking);
         public Bookings UpdateBooking(Bookings booking);

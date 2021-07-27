@@ -79,6 +79,21 @@ namespace Airline.API.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("Blockairlines/{id}")]
+        public IActionResult Put(int id)
+        {
+            var result = _airlineBL.Blockairline(id);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest("update failed");
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

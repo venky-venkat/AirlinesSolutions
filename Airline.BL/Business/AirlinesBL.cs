@@ -29,6 +29,11 @@ namespace Airline.BL.Business
             return _airlineDL.AddAirline(al);
         }
 
+        public Airlines Blockairline(int id)
+        {
+            return _airlineDL.Blockairline(id);
+        }
+
         public void DeleteAirline(int id)
         {
             _airlineDL.DeleteAirline(id);
@@ -45,7 +50,8 @@ namespace Airline.BL.Business
                     AirlineName = result.AirlineName,
                     Contactaddress = result.Contactaddress,
                     Contactnumber = result.Contactnumber,
-                    Logopath = result.Logopath
+                    Logopath = result.Logopath,
+                    Status = result.status
                 };
                 return airlineDTO;
             }
@@ -69,7 +75,9 @@ namespace Airline.BL.Business
                     AirlineName = vv.AirlineName,
                     Contactaddress = vv.Contactaddress,
                     Contactnumber = vv.Contactnumber,
-                    Logopath = vv.Logopath
+                    Logopath = vv.Logopath,
+                    Status = vv.status
+
                 };
                 al.Add(a);
             }

@@ -15,5 +15,6 @@ namespace Booking.BL.IBusiness
         public Bookings UpdateBooking(Bookings booking);
         public Bookings CancelBookingByID(int id);
         public Bookings CancelBookingByPNR(string pnr);
+        public Bookings GetBookingById(int id);
     }
 }

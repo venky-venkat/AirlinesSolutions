@@ -24,6 +24,7 @@ namespace Airline.DL.Repositories
             {
                 return null;
             }
+            result.status = "ACTIVE";
             _DB.Airlines.Add(airline);
             _DB.SaveChanges();
             return airline;
@@ -63,6 +64,26 @@ namespace Airline.DL.Repositories
                 result.Contactnumber = airline.Contactnumber;
                 _DB.SaveChanges();
                 return airline;
+            }
+            return null;
+        }
+
+        public Airlines Blockairline(int id)
+        {
+            var result = _DB.Airlines.SingleOrDefault(b => b.Id == id);
+            if (result != null)
+            {
+               if (result.status == "BLOCKED")
+                {
+                    result.status = "ACTIVE";
+                    _DB.SaveChanges();
+                    return result;
+                }
+                 
+                result.status = "BLOCKED";
+                _DB.SaveChanges();
+                
+                return result;
             }
             return null;
         }

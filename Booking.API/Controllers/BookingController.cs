@@ -49,6 +49,21 @@ namespace Booking.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetBookingByID/{id}")]
+        public IActionResult GetById(int id)
+        {
+            var res = _bookingBL.GetBookingById(id);
+            if (res != null)
+            {
+                return Ok(res);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        [HttpGet]
 
         [Route("GetBookingByUser/{username}")]
         public IActionResult GetByUsername(string username)

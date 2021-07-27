@@ -12,5 +12,6 @@ namespace Airline.DL.IRepository
         public Airlines AddAirline(Airlines airline);
         public Airlines UpdateAirline(Airlines airline);
         public void DeleteAirline(int id);
+        public Airlines Blockairline(int id);
     }
 }

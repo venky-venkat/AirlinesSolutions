@@ -11,5 +11,6 @@ namespace Airline.BL.DTO
         public string Logopath { get; set; }
         public string Contactnumber { get; set; }
         public string Contactaddress { get; set; }
+        public string Status { get; set; }
     }
 }

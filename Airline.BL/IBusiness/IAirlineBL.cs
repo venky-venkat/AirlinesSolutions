@@ -13,5 +13,6 @@ namespace Airline.BL.IBusiness
         public Airlines AddAirline(AirlinesDTO airline);
         public Airlines UpdateAirline(AirlinesDTO airline);
         public void DeleteAirline(int id);
+        public Airlines Blockairline(int id);
     }
 }

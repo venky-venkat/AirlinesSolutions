@@ -30,6 +30,11 @@ namespace Airline.BL.Business
             _flightDL.Deleteflight(id);
         }
 
+        public List<Flight> GetFlightBydate(string from, string to, string ondate)
+        {
+            return _flightDL.GetFlightBydate(from, to,ondate);
+        }
+
         public List<Flight> GetFlightByFromandTo(string from, string to)
         {
             return _flightDL.GetFlightByFromandTo(from, to);

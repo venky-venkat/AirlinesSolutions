@@ -138,5 +138,15 @@ namespace Booking.DL.Repository
             }
             return message;
         }
+
+        public Bookings GetBookingById(int id)
+        {
+            var result = _DB.Bookings.Where(x => x.Id == id).FirstOrDefault<Bookings>();
+            if (result != null)
+            {
+                return result;
+            }
+            return null;
+        }
     }
 }

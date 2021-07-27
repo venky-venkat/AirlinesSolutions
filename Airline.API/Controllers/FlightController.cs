@@ -67,6 +67,21 @@ namespace Airline.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("SearchFlights/{from}/{to}/{ondate}")]
+        public IActionResult Get(string from, string to,string ondate)
+        {
+            var result = _flightBL.GetFlightBydate(from, to,ondate);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound("No flight found on this Date");
+            }
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Flight flight)
         {

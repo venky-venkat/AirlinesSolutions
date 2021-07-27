@@ -41,6 +41,11 @@ namespace Booking.BL.Business
             return  _bookingDL.GetallBookings();
         }
 
+        public Bookings GetBookingById(int id)
+        {
+            return _bookingDL.GetBookingById(id);
+        }
+
         public  Bookings GetBookingByPNR(string PNR)
         {
             return  _bookingDL.GetBookingByPNR(PNR);
