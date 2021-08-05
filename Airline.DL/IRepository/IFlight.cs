@@ -15,5 +15,6 @@ namespace Airline.DL.IRepository
         public Flight UpdateFlight(Flight flight);
         public void Deleteflight(int id);
         public Flight CancelFlight(int Id);
+        public string GetAirlinename(int ID);
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using Airline.DL.IRepository;
 using Airline.DL.Models;
 using Airline.BL.IBusiness;
+using Airline.BL.DTO;
 
 namespace Airline.BL.Business
 {
@@ -40,9 +41,32 @@ namespace Airline.BL.Business
             return _flightDL.GetFlightByFromandTo(from, to);
         }
 
-        public Flight GetFlightByID(int ID)
+        public FlightDTO GetFlightByID(int ID)
         {
-            return _flightDL.GetFlightByID(ID);
+           
+            var flight = _flightDL.GetFlightByID(ID);
+            var airlinename = _flightDL.GetAirlinename(flight.AirlineID);
+            FlightDTO flightDTO = new FlightDTO
+            {
+                Id = flight.Id,
+                AirlineID = flight.AirlineID,
+                AirlineName = airlinename,
+                Discountamount = flight.Discountamount,
+                DiscountCode = flight.DiscountCode,
+                Flightname = flight.Flightname,
+                From = flight.From,
+                Landing = flight.Landing,
+                Meals = flight.Meals,
+                Numberofbusinessseats = flight.Numberofbusinessseats,
+                Numberofnonbusinessseats = flight.Numberofnonbusinessseats,
+                Numberofrows = flight.Numberofrows,
+                Scheduling = flight.Scheduling,
+                Status = flight.Status,
+                Takeoff = flight.Takeoff,
+                To = flight.To,
+                Totalcost = flight.Totalcost
+            };
+            return flightDTO;
         }
 
         public List<Flight> GetFlights()

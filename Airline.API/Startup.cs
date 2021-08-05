@@ -1,20 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Airline.BL.Business;
 using Airline.BL.IBusiness;
 using Airline.DL.DBContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Airline.DL.IRepository;
 using Airline.DL.Repositories;
+using ValidateToken.Filter;
 namespace Airline.API
 {
     public class Startup
@@ -29,7 +24,13 @@ namespace Airline.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllers();
+            //services.AddMvc()
+            //      .AddMvcOptions(options =>
+            //      {
+            //          options.Filters.Add(new AuthorizationFilter());
+            //      });
             services.AddCors();
             services.AddTransient<IAirlineBL,AirlinesBL>();
             services.AddTransient<IAirlineRepository,AirlinesRepository>();
@@ -39,6 +40,7 @@ namespace Airline.API
             services.AddDbContext<AirlinesDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DatabaseConnectionString"),
               b => b.MigrationsAssembly("Airline.DL")));
 
+           
 
             services.AddSwaggerGen(options =>
             {

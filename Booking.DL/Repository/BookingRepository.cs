@@ -85,7 +85,7 @@ namespace Booking.DL.Repository
                     _DB.SaveChanges();
                 }
             }
-            Thread.Sleep(5000);
+            
             var result = _DB.Bookings.FirstOrDefault(x => x.PNR == PNR);
             if (result != null)
             {
@@ -131,11 +131,11 @@ namespace Booking.DL.Repository
                         var body = ea.Body.ToArray();
                        
                         message = Encoding.UTF8.GetString(body);
-
                     };
                     channel.BasicConsume(queue: "FlightStatus", autoAck: true, consumer: consumer);
                 }
             }
+            Thread.Sleep(5000);
             return message;
         }
 

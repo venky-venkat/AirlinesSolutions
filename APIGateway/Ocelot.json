@@ -65,6 +65,20 @@
       "UpstreamPathTemplate": "/airline/delete/{id}",
       "UpstreamHttpMethod": [ "DELETE" ]
     },
+
+    {
+      "DownstreamPathTemplate": "/api/Airlines/Uploadlogo",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62253
+        }
+      ],
+      "Key": "accountmanagementKey",
+      "UpstreamPathTemplate": "/upload",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
     {
       "DownstreamPathTemplate": "/api/Airlines/Blockairlines/{id}",
       "DownstreamScheme": "http",
@@ -196,7 +210,7 @@
       ],
       "Key": "accountmanagementKey",
       "UpstreamPathTemplate": "/Bookinghistory/{username}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     },
 
     {

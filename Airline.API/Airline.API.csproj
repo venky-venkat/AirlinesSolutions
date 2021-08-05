@@ -17,6 +17,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Airline.BL\Airline.BL.csproj" />
     <ProjectReference Include="..\Airline.DL\Airline.DL.csproj" />
+    <ProjectReference Include="..\ValidateToken\ValidateToken.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
 
 

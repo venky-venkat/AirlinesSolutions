@@ -24,7 +24,7 @@ namespace Airline.DL.Repositories
             {
                 return null;
             }
-            result.status = "ACTIVE";
+            airline.status = "ACTIVE";
             _DB.Airlines.Add(airline);
             _DB.SaveChanges();
             return airline;

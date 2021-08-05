@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Booking.BL\Booking.BL.csproj" />
     <ProjectReference Include="..\Booking.DL\Booking.DL.csproj" />
+    <ProjectReference Include="..\ValidateToken\ValidateToken.csproj" />
   </ItemGroup>
 
 

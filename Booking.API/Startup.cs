@@ -1,22 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Booking.DL.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Booking.BL.Business;
 using Booking.BL.IBusiness;
 using Booking.DL.IRepository;
 using Booking.DL.Repository;
-using Booking.DL.Consume;
-
+using ValidateToken.Filter;
 namespace Booking.API
 {
     public class Startup
@@ -32,13 +25,18 @@ namespace Booking.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMvc()
+                 .AddMvcOptions(options =>
+                 {
+                     options.Filters.Add(new AuthorizationFilter());
+                 });
             services.AddTransient<IBookingBL,BookingBusiness>();
             services.AddTransient<IBookingDL,BookingRepository>();
-            //services.AddTransient<IFlightStatus,FlightStatus>();
-             
+            
             services.AddDbContext<BookingDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DatabaseConnectionString"),
               b => b.MigrationsAssembly("Booking.DL")));
 
+            
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo

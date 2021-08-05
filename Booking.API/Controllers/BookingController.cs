@@ -64,7 +64,6 @@ namespace Booking.API.Controllers
         }
 
         [HttpGet]
-
         [Route("GetBookingByUser/{username}")]
         public IActionResult GetByUsername(string username)
         {

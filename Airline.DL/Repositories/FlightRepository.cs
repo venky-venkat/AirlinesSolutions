@@ -50,9 +50,18 @@ namespace Airline.DL.Repositories
             }
         }
 
-        public List<Flight> GetFlightByFromandTo(string from, string to)
+        public List<Flight> GetFlightByFromandTo(string froms, string to)
         {
-            var result = _DB.Flights.Where(x => x.From == from && x.To == to).ToList<Flight>();
+
+            var result = (from f in _DB.Flights
+                          join a in _DB.Airlines
+                          on f.AirlineID equals a.Id
+                          where a.status != "BLOCKED"
+                          where f.From == froms
+                          where f.To == to
+                          select f).ToList();
+
+            //var result = _DB.Flights.Where(x => x.From == from && x.To == to).ToList<Flight>();
             if (result != null)
             {
                 return result;
@@ -82,6 +91,11 @@ namespace Airline.DL.Repositories
         public Flight GetFlightByID(int ID)
         {
             return _DB.Flights.FirstOrDefault(x => x.Id == ID);
+        }
+
+        public string GetAirlinename(int ID)
+        {
+            return _DB.Airlines.FirstOrDefault(x => x.Id == ID).AirlineName;
         }
 
         public List<Flight> GetFlights()
